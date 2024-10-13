@@ -5,7 +5,7 @@ import (
 	"github.com/gorilla/mux"
 	"gorm.io/gorm"
 	"net/http"
-	"secret-santa/backend/models"
+	"secret-santa-backend/models"
 )
 
 func GetAssignmentsByGroup(db *gorm.DB) http.HandlerFunc {

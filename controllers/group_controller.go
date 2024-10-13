@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"gorm.io/gorm"
 	"net/http"
-	"secret-santa/backend/models"
+	"secret-santa-backend/models"
 )
 
 func GetGroups(db *gorm.DB) http.HandlerFunc {

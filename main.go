@@ -11,7 +11,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"secret-santa/backend/models"
+	"secret-santa-backend/models"
 	"secret-santa/backend/routes"
 )
 
