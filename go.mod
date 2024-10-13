@@ -1,4 +1,4 @@
-module secret-santa/backend
+module secret-santa-backend
 
 go 1.23
 

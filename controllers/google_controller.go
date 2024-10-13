@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"golang.org/x/oauth2"
 	"net/http"
-	"secret-santa-backend/utils/utils"
+	"secret-santa-backend/utils"
 )
 
 var googleOauthConfig *oauth2.Config
 
 // Google OAuth2 callback handler
-func googleCallbackHandler(w http.ResponseWriter, r *http.Request) {
+func GoogleCallbackHandler(w http.ResponseWriter, r *http.Request) {
 	code := r.URL.Query().Get("code")
 	token, err := googleOauthConfig.Exchange(context.Background(), code)
 

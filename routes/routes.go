@@ -5,12 +5,12 @@ import (
 	"github.com/rs/cors"
 	"gorm.io/gorm"
 	"net/http"
-	"secret-santa/backend/controllers"
+	"secret-santa-backend/controllers"
 )
 
 func RegisterRoutes(router *mux.Router, db *gorm.DB) {
 	corsHandler := cors.Default().Handler(router)
-	router.HandleFunc("/auth/google/callback", googleCallbackHandler).Methods("GET")
+	router.HandleFunc("/auth/google/callback", controllers.GoogleCallbackHandler).Methods("GET")
 	//HealthCHeck
 	router.HandleFunc("/healthcheck", controllers.HealthCHeck(db)).Methods("GET")
 	// User Routes
