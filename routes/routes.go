@@ -10,6 +10,7 @@ import (
 
 func RegisterRoutes(router *mux.Router, db *gorm.DB) {
 	corsHandler := cors.Default().Handler(router)
+
 	router.HandleFunc("/auth/google/callback", controllers.GoogleCallbackHandler).Methods("GET")
 	//HealthCHeck
 	router.HandleFunc("/healthcheck", controllers.HealthCHeck(db)).Methods("GET")
