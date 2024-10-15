@@ -1,8 +1,5 @@
 # secret-santa-backend
 
-Here's the `README.md` content in code format for easy copying:
-
-```markdown
 # Docker Compose Project with Makefile
 
 This project simplifies the management of your Docker Compose setup using a `Makefile`. You can easily start, stop, restart containers, view logs, and perform other common tasks using simple `make` commands.
