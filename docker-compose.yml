@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  app:
+    image: golang:1.23 # Use the latest Go image
+    volumes:
+      - ./:/go/src/app # Mount your current directory to /go/src/app in the container
+    working_dir: /go/src/app
+    command: bash -c "go mod tidy && go run main.go" # Adjust this to match your Go entry point
+    ports:
+      - "8080:8080" # Expose the app's port
+    environment:
+      - GO_ENV=development
+      - DB_HOST=postgres # Hostname of the Postgres container
+      - DB_USER=myuser   # Matches the Postgres user set below
+      - DB_PASSWORD=mypassword # Matches the Postgres password set below
+      - DB_NAME=mydb     # Matches the Postgres database name set below
+      - DB_PORT=5432     # Matches the Postgres port set below
+    depends_on:
+      - postgres # Ensure Postgres starts before the app
+
+  postgres:
+    image: postgres:15-alpine # Using the official PostgreSQL image
+    environment:
+      POSTGRES_DB: mydb         # Set the primary database name
+      POSTGRES_USER: myuser     # Set the username
+      POSTGRES_PASSWORD: mypassword # Set the password
+    ports:
+      - "5432:5432" # Expose Postgres on port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persist Postgres data
+
+volumes:
+  postgres_data:
