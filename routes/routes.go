@@ -14,9 +14,11 @@ func RegisterRoutes(router *mux.Router, db *gorm.DB) {
 	router.HandleFunc("/auth/google/callback", controllers.GoogleCallbackHandler).Methods("GET")
 	//HealthCHeck
 	router.HandleFunc("/healthcheck", controllers.HealthCHeck(db)).Methods("GET")
+
 	// User Routes
 	router.HandleFunc("/users", controllers.GetUsers(db)).Methods("GET")
-	router.HandleFunc("/users", controllers.PutUser(db)).Methods("PUT")
+	//TODO REMOVE!
+	// router.HandleFunc("/users", controllers.PutUser(db)).Methods("PUT")
 
 	// Group Routes
 	router.HandleFunc("/groups", controllers.GetGroups(db)).Methods("GET")
